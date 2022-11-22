@@ -14,7 +14,7 @@ public class Main {
         boolean run = true;
         boolean isValidMessage = true;
         Scanner myScanner = new Scanner(System.in);
-        while (run) {
+        do {
             System.out.println("----------------------");
             System.out.println("Waehle eine Biersorte ?");
             System.out.println("----------------------");
@@ -99,6 +99,6 @@ public class Main {
             } else {
                 System.out.println("Die Eingabe ist zu lang");
             }
-        }
+        }while(run);
     }
 }
