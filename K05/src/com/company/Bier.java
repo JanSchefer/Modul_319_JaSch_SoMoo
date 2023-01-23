@@ -1,6 +1,6 @@
 package com.company;
 
-public class Bier {
+public class Bier implements Comparable {
     private String name;
     private String farbe;
     private double preis;
@@ -56,5 +56,23 @@ public class Bier {
      */
     public void setPreis(double preis) {
         this.preis = preis;
+    }
+
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Bier){
+            Bier otherBier = (Bier)o;
+            if(otherBier.getPreis() < this.getPreis()){
+                return -1;
+            }else{
+                return 1;
+            }
+        }
+        return 0;
     }
 }

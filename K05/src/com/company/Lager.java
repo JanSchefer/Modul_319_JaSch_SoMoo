@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Lager implements LagerService {
@@ -49,9 +50,12 @@ public class Lager implements LagerService {
 
         for (int i = 0; i < marken.size(); i++) {
             Marke marke = marken.get(i);
-            ArrayList<Bier> sortedList = sorting.sort(marke.getBiers());
+            ArrayList<Bier> bierList = marke.getBiers();
+            sorting.sort(bierList);
+            Collections.sort(bierList);
+            Collections.sort(bierList, new BierNameComparator());
             System.out.println(marke.getName() + ":");
-            for (int y = 0; y < sortedList.size(); y++) {
+            for (int y = 0; y < bierList.size(); y++) {
                 Bier thisBier = marke.getBiers().get(y);
                 System.out.println("name: " + thisBier.getName());
                 System.out.println("farbe: " + thisBier.getFarbe());

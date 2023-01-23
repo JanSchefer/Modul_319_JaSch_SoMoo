@@ -3,9 +3,13 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sorting {
 
-    public ArrayList<Bier> sort(ArrayList<Bier> listToSort){
+public class Sorting {
+    /**
+     *
+     * @param listToSort
+     */
+    public void sort(ArrayList<Bier> listToSort){
 
         Bier smallInt = null;
         int j = 0;
@@ -23,16 +27,17 @@ public class Sorting {
                     smallIntIndex = j;
                 }
             }
-
-            //Swap the smallest element with the first element of unsorted subarray
             swap(i - 1, smallIntIndex,listToSort);
         }
-
-        return listToSort;
     }
 
-
-    public void swap(int sourceIndex, int destIndex,List<Bier> listToSwap) {
+    /**
+     *
+     * @param sourceIndex
+     * @param destIndex
+     * @param listToSwap
+     */
+    private void swap(int sourceIndex, int destIndex,List<Bier> listToSwap) {
         Bier temp = listToSwap.get(destIndex);
         listToSwap.set(destIndex, listToSwap.get(sourceIndex));
         listToSwap.set(sourceIndex, temp);
